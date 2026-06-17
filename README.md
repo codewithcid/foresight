@@ -1,6 +1,10 @@
 # ◎ Foresight — Customer Journey Intelligence & What-If Simulator
 
+### ▶ Live demo: **https://foresight-ten-cyan.vercel.app**
+
 > **Stop A/B testing in production. Foresight predicts the lift of a marketing intervention before you spend a cent — and proves its predictions are accurate against held-out ground truth.**
+
+*The live link is a static snapshot of the full app (every dropdown combo + Gemini narratives precomputed) — no backend, no cold starts. Run locally (below) for the live FastAPI + uplift engine.*
 
 Built for the **Epsilon TeXpedition** hackathon. Foresight ingests omnichannel
 customer-journey data, finds where customers drop off, recommends the
