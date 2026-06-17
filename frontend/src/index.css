@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 600px at 80% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 0% 0%, rgba(52, 211, 153, 0.08), transparent 55%),
+    #080b14;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-panel/70 backdrop-blur p-5 shadow-xl shadow-black/30;
+  }
+  .card-title {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400;
+  }
+  .stat {
+    @apply font-mono tabular-nums;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-panel2 px-2.5 py-1 text-xs font-medium text-slate-300;
+  }
+}
+
+.recharts-default-tooltip {
+  background: #0f1525 !important;
+  border: 1px solid #202b44 !important;
+  border-radius: 10px !important;
+}
