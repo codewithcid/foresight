@@ -88,7 +88,12 @@ export default function App() {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+      <nav aria-label="Main navigation" className="mb-6 flex gap-2 border-b border-line pb-3">
+        <a href="#dashboard" className="pill hover:border-brand hover:text-white">Dashboard</a>
+        <a href="#how" className="pill hover:border-brand hover:text-white">How it works</a>
+      </nav>
+
+      <div id="dashboard" className="grid scroll-mt-5 grid-cols-1 gap-4 lg:grid-cols-12">
         <div className="lg:col-span-7"><Funnel funnel={overview.funnel} /></div>
         <div className="lg:col-span-5">
           <FrictionPanel overview={overview} narrative={overview.narrative} narrativeSource={overview.narrative_source} />
@@ -118,6 +123,33 @@ export default function App() {
           />
         </div>
       </div>
+
+      <section id="how" aria-labelledby="how-heading" className="mt-10 scroll-mt-5">
+        <p className="card-title text-brand">From journeys to decisions</p>
+        <h2 id="how-heading" className="mt-2 text-2xl font-bold text-white">How it works</h2>
+        <p className="mt-2 max-w-3xl text-sm text-slate-400">
+          Foresight compares what a customer might do with an intervention against what they might do without it,
+          then checks that prediction against a known treatment effect.
+        </p>
+        <ol className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["01", "Map the journey", "Start with 20,000 synthetic customer journeys across awareness, consideration, intent, purchase, and retention. Find the largest drop-offs and the segments most affected."],
+            ["02", "Estimate the lift", "A LightGBM S-learner predicts conversion with and without each intervention. The difference estimates uplift; reach, contact cost, and order value turn that into revenue and ROI."],
+            ["03", "Explore a scenario", "Choose a marketing intervention and customer segment in the simulator. Compare predicted lift, additional conversions, revenue, and the uncertainty interval before choosing a campaign."],
+            ["04", "Check the prediction", "Hold back customer data during training, then compare predictions with the synthetic generator's known treatment effects. The validation panel shows the errors instead of assuming the model is correct."],
+          ].map(([number, title, description]) => (
+            <li key={number} className="card">
+              <span className="stat text-sm text-brand">{number}</span>
+              <h3 className="mt-3 font-semibold text-white">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">{description}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-4 text-xs leading-relaxed text-slate-500">
+          This hosted demo uses precomputed model results and explanations for instant exploration.
+          The source project includes the live FastAPI training and simulation pipeline. Results describe synthetic data, not observed business outcomes.
+        </p>
+      </section>
 
       <footer className="mt-8 text-center text-[11px] text-slate-600">
         Foresight · synthetic omnichannel data · uplift via S-learner · built for Epsilon TeXpedition
